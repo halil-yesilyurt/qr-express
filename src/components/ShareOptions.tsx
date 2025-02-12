@@ -50,6 +50,7 @@ export function ShareOptions({ url, isDarkMode, disabled = false, addToHistory, 
               text: `Check out this QR code I generated!`,
               url: shareUrl
             })
+            onShare(shareUrl);
           } else {
             // Fallback to copy if native sharing is not available
             await handleShare(SHARE_OPTIONS.find(opt => opt.id === 'copy')!)
@@ -60,11 +61,13 @@ export function ShareOptions({ url, isDarkMode, disabled = false, addToHistory, 
           await navigator.clipboard.writeText(shareUrl)
           setShowTooltip(true)
           setTimeout(() => setShowTooltip(false), 2000)
+          onShare(shareUrl);
           break
 
         default:
           if (option.url) {
             window.open(option.url(shareUrl), '_blank', 'noopener,noreferrer')
+            onShare(shareUrl);
           }
       }
       setShowSocialDropdown(false)
