@@ -1,41 +1,36 @@
-import { useState, useEffect } from 'react';
-import { QRHistory } from '../types';
+import { useState, useEffect } from 'react'
+import { QRHistory } from '../types'
 
 export function useQRHistory() {
-  // State to store QR code history
-  const [history, setHistory] = useState<QRHistory[]>([]);
+  const [history, setHistory] = useState<QRHistory[]>([])
 
-  // Load saved history from localStorage when component mounts
   useEffect(() => {
-    const savedHistory = localStorage.getItem('qr-history');
+    const savedHistory = localStorage.getItem('qr-history')
     if (savedHistory) {
-      setHistory(JSON.parse(savedHistory));
+      setHistory(JSON.parse(savedHistory))
     }
-  }, []);
+  }, [])
 
-  // Add new QR code to history
   const addToHistory = (url: string) => {
-    if (url) {
-      // Create new history entry with unique ID
-      const newHistory: QRHistory = {
-        url,
-        timestamp: Date.now(), // Current timestamp
-        id: Math.random().toString(36).substring(2, 11), // Generate random ID
-      };
-      // Update history state
-      setHistory((prev) => {
-        const updated = [newHistory, ...prev].slice(0, 10); // Keep only last 10 items
-        localStorage.setItem('qr-history', JSON.stringify(updated)); // Save to localStorage
-        return updated;
-      });
+    if (!url.trim()) return
+
+    const newHistory: QRHistory = {
+      url: url.trim(),
+      timestamp: Date.now(),
+      id: Math.random().toString(36).substring(2, 11)
     }
-  };
 
-  // Clear all history
+    setHistory(prev => {
+      const updated = [newHistory, ...prev].slice(0, 10)
+      localStorage.setItem('qr-history', JSON.stringify(updated))
+      return updated
+    })
+  }
+
   const clearHistory = () => {
-    setHistory([]); // Clear state
-    localStorage.removeItem('qr-history'); // Remove from localStorage
-  };
+    setHistory([])
+    localStorage.removeItem('qr-history')
+  }
 
-  return { history, addToHistory, clearHistory };
+  return { history, addToHistory, clearHistory }
 }
