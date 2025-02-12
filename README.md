@@ -3,7 +3,7 @@
 QR Express is a powerful, modern QR code generator built with React.js and TypeScript. This intuitive web application allows users to create, customize, and share QR codes effortlessly. With features like real-time preview, dark mode support, and multiple export options, users can generate professional QR codes for any purpose. The application includes advanced customization options such as color selection, error correction levels, and logo integration, making it perfect for both personal and business use.
 
 <p align="center">
-  <img src="src/assets/qr-express-screenshot.png" alt="QR Code Generator Screenshot" style="max-width: 400px; width: 100%;">
+  <img src="src/assets/qr-express-screenshot.png" alt="QR Code Generator Screenshot" style="width: 400px;">
 </p>
 
 ## Features
