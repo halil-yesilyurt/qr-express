@@ -37,7 +37,6 @@ export function ShareOptions({ url, isDarkMode, disabled = false, addToHistory, 
     try {
       const shareUrl = url.trim() || DEFAULT_URL;
       
-      // Save URL to history
       if (url.trim()) {
         addToHistory(url);
       }
@@ -52,7 +51,6 @@ export function ShareOptions({ url, isDarkMode, disabled = false, addToHistory, 
             })
             onShare(shareUrl);
           } else {
-            // Fallback to copy if native sharing is not available
             await handleShare(SHARE_OPTIONS.find(opt => opt.id === 'copy')!)
           }
           break
@@ -116,7 +114,6 @@ export function ShareOptions({ url, isDarkMode, disabled = false, addToHistory, 
         ))}
       </div>
 
-      {/* Social Platforms Dropdown */}
       {showSocialDropdown && !disabled && (
         <div 
           className={`absolute right-0 mt-2 rounded-lg shadow-lg z-20 ${
@@ -142,7 +139,6 @@ export function ShareOptions({ url, isDarkMode, disabled = false, addToHistory, 
         </div>
       )}
 
-      {/* Tooltip */}
       {showTooltip && (
         <div
           className={`absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 rounded-md text-sm ${
