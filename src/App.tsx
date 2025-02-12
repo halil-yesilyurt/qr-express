@@ -9,6 +9,7 @@ import { SIZES, ERROR_LEVELS, DEFAULT_URL } from './constants'
 import { ErrorCorrectionLevel } from './types'
 // @ts-ignore
 import { ShareOptions } from './components/ShareOptions'
+import { jsPDF } from 'jspdf'
 
 function App() {
   const [url, setUrl] = useState('')
@@ -69,15 +70,31 @@ function App() {
 
       const processDownload = () => {
         if (format === 'pdf') {
-          import('jspdf').then(({ default: JsPDF }) => {
-            const pdf = new JsPDF({
-              orientation: 'portrait',
-              unit: 'px',
-              format: [downloadSize, downloadSize],
+          try {
+            // Convert pixels to points (1 point = 1/72 inch, and PDF uses points)
+            const pdfWidth = downloadSize * 0.75  // Convert pixels to points
+            const pdfHeight = downloadSize * 0.75 // Convert pixels to points
+            
+            const pdf = new jsPDF({
+              orientation: pdfWidth > pdfHeight ? 'landscape' : 'portrait',
+              unit: 'pt', // Use points instead of pixels
+              format: [pdfWidth, pdfHeight]
             })
-            pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, downloadSize, downloadSize)
+            
+            // Add the image, converting from pixels to points
+            pdf.addImage(
+              canvas.toDataURL('image/png'),
+              'PNG',
+              0,
+              0,
+              pdfWidth,
+              pdfHeight
+            )
             pdf.save(getCleanFileName())
-          })
+          } catch (error) {
+            console.error('Error generating PDF:', error)
+            alert('Failed to generate PDF. Please try again.')
+          }
         } else {
           const pngUrl = canvas.toDataURL('image/png')
           const downloadLink = document.createElement('a')
