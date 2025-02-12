@@ -3,7 +3,7 @@
 A modern, feature-rich QR code generator built with React and TypeScript. Generate, customize, and share QR codes with ease.
 
 <p align="center">
-  <img src="src/assets/qr-express-screenshot.png" alt="QR Code Generator Screenshot" style="max-width: 500px; width: 100%;">
+  <img src="src/assets/qr-express-screenshot.png" alt="QR Code Generator Screenshot" style="max-width: 400px; width: 100%;">
 </p>
 
 ## Features
