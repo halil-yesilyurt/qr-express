@@ -69,8 +69,8 @@ QR Express is a powerful, modern QR code generator built with React.js and TypeS
 
 1. Clone the repository:
    ```bash
-   git clone [repository-url]
-   cd qr-code-generator
+   git clone https://github.com/halil-yesilyurt/qr-express.git
+   cd qr-express
    ```
 
 2. Install dependencies:
@@ -159,36 +159,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [TailwindCSS](https://tailwindcss.com/) for styling
 - [Vite](https://vitejs.dev/) for the build system
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for testing utilities
-
-## Deployment
-
-### GitHub
-
-1. Create a new repository on GitHub
-2. Initialize git and push your code:
-   ```bash
-   git remote add origin https://github.com/username/qr-code-generator.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-### Netlify Deployment
-
-1. Sign up/Login to [Netlify](https://www.netlify.com/)
-2. Click "Add new site" > "Import an existing project"
-3. Connect with GitHub and select your repository
-4. Configure the deployment settings:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-   - Node version: `16` (or higher)
-5. Click "Deploy site"
-
-#### Environment Variables (if needed)
-Add any required environment variables in Netlify:
-1. Go to Site settings > Build & deploy > Environment
-2. Add variables as needed
-
-#### Custom Domain (Optional)
-1. Go to Site settings > Domain management
-2. Add your custom domain
-3. Follow Netlify's DNS configuration instructions
