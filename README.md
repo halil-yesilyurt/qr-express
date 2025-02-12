@@ -2,6 +2,10 @@
 
 A modern, feature-rich QR code generator built with React and TypeScript. Generate, customize, and share QR codes with ease.
 
+<p align="center">
+  <img src="src/assets/qr-express-screenshot.png" alt="QR Code Generator Screenshot" style="max-width: 500px; width: 100%;">
+</p>
+
 ## Features
 
 - 🎨 **Customizable QR Codes**
@@ -155,3 +159,36 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [TailwindCSS](https://tailwindcss.com/) for styling
 - [Vite](https://vitejs.dev/) for the build system
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) for testing utilities
+
+## Deployment
+
+### GitHub
+
+1. Create a new repository on GitHub
+2. Initialize git and push your code:
+   ```bash
+   git remote add origin https://github.com/username/qr-code-generator.git
+   git branch -M main
+   git push -u origin main
+   ```
+
+### Netlify Deployment
+
+1. Sign up/Login to [Netlify](https://www.netlify.com/)
+2. Click "Add new site" > "Import an existing project"
+3. Connect with GitHub and select your repository
+4. Configure the deployment settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+   - Node version: `16` (or higher)
+5. Click "Deploy site"
+
+#### Environment Variables (if needed)
+Add any required environment variables in Netlify:
+1. Go to Site settings > Build & deploy > Environment
+2. Add variables as needed
+
+#### Custom Domain (Optional)
+1. Go to Site settings > Domain management
+2. Add your custom domain
+3. Follow Netlify's DNS configuration instructions
