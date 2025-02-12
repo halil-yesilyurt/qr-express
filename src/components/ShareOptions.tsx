@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { ShareMethod, ShareOption } from '../types'
+import { ShareOption } from '../types'
 import { SHARE_OPTIONS, SOCIAL_PLATFORMS, DEFAULT_URL } from '../constants'
 
 interface ShareOptionsProps {

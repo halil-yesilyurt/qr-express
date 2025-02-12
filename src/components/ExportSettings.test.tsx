@@ -1,7 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ExportSettings } from './ExportSettings';
-import { DEFAULT_URL } from '../constants';
 import { vi } from 'vitest';
 
 // Mock functions
